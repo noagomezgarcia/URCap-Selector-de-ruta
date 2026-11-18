@@ -1,9 +1,3 @@
-com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeContribution.class
-com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeService.class
 com/noa/buttonselector/buttonselector/impl/BranchProgramNodeContribution.class
-com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeView$1.class
-com/noa/buttonselector/buttonselector/impl/BranchProgramNodeView.class
-com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeContribution$1.class
-com/noa/buttonselector/buttonselector/impl/BranchProgramNodeService.class
-com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeView.class
 com/noa/buttonselector/buttonselector/impl/Activator.class
+com/noa/buttonselector/buttonselector/impl/BranchProgramNodeView.class

@@ -8,7 +8,8 @@ public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext bundleContext) throws Exception {
 		bundleContext.registerService(SwingProgramNodeService.class, new SelectorProgramNodeService(), null);
-		bundleContext.registerService(SwingProgramNodeService.class, new BranchProgramNodeService(), null);
+		bundleContext.registerService(SwingProgramNodeService.class, new GreenBranchProgramNodeService(), null);
+		bundleContext.registerService(SwingProgramNodeService.class, new RedBranchProgramNodeService(), null);
 	}
 
 	@Override

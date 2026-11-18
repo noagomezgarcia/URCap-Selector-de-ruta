@@ -2,6 +2,8 @@
 /workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/BranchProgramNodeContribution.java
 /workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/BranchProgramNodeService.java
 /workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/BranchProgramNodeView.java
+/workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/GreenBranchProgramNodeService.java
+/workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/RedBranchProgramNodeService.java
 /workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeContribution.java
 /workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeService.java
 /workspaces/URCap-Selector-de-ruta/com.noa.buttonselector.buttonselector/src/main/java/com/noa/buttonselector/buttonselector/impl/SelectorProgramNodeView.java

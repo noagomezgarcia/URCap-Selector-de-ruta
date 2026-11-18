@@ -44,9 +44,8 @@ public class SelectorProgramNodeContribution implements ProgramNodeContribution 
 		try {
 			root.setChildSequenceLocked(true);
 
-			// Crear las 2 ramas hijas (la 1ª será Verde y la 2ª será Roja)
-			root.addChild(nf.createURCapProgramNode(BranchProgramNodeService.class));
-			root.addChild(nf.createURCapProgramNode(BranchProgramNodeService.class));
+			root.addChild(nf.createURCapProgramNode(GreenBranchProgramNodeService.class));
+			root.addChild(nf.createURCapProgramNode(RedBranchProgramNodeService.class));
 
 		} catch (TreeStructureException e) {
 			e.printStackTrace();
