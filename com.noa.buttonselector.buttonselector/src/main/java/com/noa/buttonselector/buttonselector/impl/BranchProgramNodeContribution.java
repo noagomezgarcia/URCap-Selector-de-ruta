@@ -1,33 +1,37 @@
 package com.noa.buttonselector.buttonselector.impl;
 
+import java.util.Iterator;
 import com.ur.urcap.api.contribution.ProgramNodeContribution;
 import com.ur.urcap.api.contribution.program.ProgramAPIProvider;
 import com.ur.urcap.api.domain.data.DataModel;
+import com.ur.urcap.api.domain.program.structure.TreeNode;
 import com.ur.urcap.api.domain.script.ScriptWriter;
 
 public class BranchProgramNodeContribution implements ProgramNodeContribution {
 
+	private final ProgramAPIProvider apiProvider;
 	private final BranchProgramNodeView view;
-	private final DataModel model;
-	public static final String BRANCH_NAME_KEY = "branch_name";
-	public static final String BRANCH_ID_KEY = "branch_id";
 
 	public BranchProgramNodeContribution(ProgramAPIProvider apiProvider, BranchProgramNodeView view, DataModel model) {
+		this.apiProvider = apiProvider;
 		this.view = view;
-		this.model = model;
 	}
 
-	public void configureBranch(String name, int choiceId) {
-		model.set(BRANCH_NAME_KEY, name);
-		model.set(BRANCH_ID_KEY, choiceId);
+	// Detecta automáticamente si es el primer hijo (Verde) o el segundo (Rojo)
+	private boolean isGreenBranch() {
+		TreeNode myNode = apiProvider.getProgramAPI().getProgramModel().getRootTreeNode(this);
+		TreeNode parentNode = myNode.getParent();
+		if (parentNode != null) {
+			Iterator<TreeNode> siblings = parentNode.getChildren().iterator();
+			if (siblings.hasNext()) {
+				return siblings.next().equals(myNode);
+			}
+		}
+		return true;
 	}
 
 	private String getBranchName() {
-		return model.get(BRANCH_NAME_KEY, "Rama");
-	}
-
-	private int getBranchId() {
-		return model.get(BRANCH_ID_KEY, 1);
+		return isGreenBranch() ? "Si pulsa VERDE (DI0)" : "Si pulsa ROJO (DI1)";
 	}
 
 	@Override
@@ -50,7 +54,7 @@ public class BranchProgramNodeContribution implements ProgramNodeContribution {
 
 	@Override
 	public void generateScript(ScriptWriter writer) {
-		if (getBranchId() == 1) {
+		if (isGreenBranch()) {
 			writer.appendLine("if (btn_choice == 1):");
 			writer.appendLine("  set_standard_digital_out(0, True)");
 			writer.appendLine("  set_standard_digital_out(1, False)");

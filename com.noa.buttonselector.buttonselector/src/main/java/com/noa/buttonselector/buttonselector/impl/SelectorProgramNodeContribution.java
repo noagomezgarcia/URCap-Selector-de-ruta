@@ -44,13 +44,9 @@ public class SelectorProgramNodeContribution implements ProgramNodeContribution 
 		try {
 			root.setChildSequenceLocked(true);
 
-			// Crear Rama Verde (DI0 / DO0) -> ID 1
-			TreeNode greenTreeNode = root.addChild(nf.createURCapProgramNode(BranchProgramNodeService.class));
-			((BranchProgramNodeContribution) greenTreeNode.getProgramNode()).configureBranch("Si pulsa VERDE (DI0)", 1);
-
-			// Crear Rama Roja (DI1 / DO1) -> ID 2
-			TreeNode redTreeNode = root.addChild(nf.createURCapProgramNode(BranchProgramNodeService.class));
-			((BranchProgramNodeContribution) redTreeNode.getProgramNode()).configureBranch("Si pulsa ROJO (DI1)", 2);
+			// Crear las 2 ramas hijas (la 1ª será Verde y la 2ª será Roja)
+			root.addChild(nf.createURCapProgramNode(BranchProgramNodeService.class));
+			root.addChild(nf.createURCapProgramNode(BranchProgramNodeService.class));
 
 		} catch (TreeStructureException e) {
 			e.printStackTrace();
@@ -111,10 +107,8 @@ public class SelectorProgramNodeContribution implements ProgramNodeContribution 
 		writer.appendLine("  blink_timer = blink_timer + get_steptime()");
 		writer.appendLine("end");
 
-		// Llama a los dos nodos hijos para que escriban sus bloques if / elif
 		writer.writeChildren();
 
-		// Apagar ambas luces al terminar la rama elegida
 		writer.appendLine("set_standard_digital_out(0, False)");
 		writer.appendLine("set_standard_digital_out(1, False)");
 	}
